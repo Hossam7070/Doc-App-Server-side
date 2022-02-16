@@ -5,14 +5,16 @@ const doctorRoute = require("./Modules/Doctor/doctorRouter")
 app.use(express.json());
 app.use(express.urlencoded());
 const port = 3000;
-
+const cors = require("cors");
+app.use(cors());
 app.use('/doctor',doctorRoute);
 
 
 
-mongoose.connect("mongodb://localhost:27017/DocAppDb", (err) => {
+mongoose.connect("mongodb://localhost:27017/DocDb", (err) => {
   if (err) process.exit(1);
-  console.log("connected to database successfully");
+  else{console.log("connected to database successfully");}
+
 });
 
 app.listen(port, () => {
