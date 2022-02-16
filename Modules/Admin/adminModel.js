@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const adminSchema = new mongoose.Schema({
     username : {
-        type: 'string',
+        type: 'string', 
         required: true,
+        
     },
     password : {
         type: 'string'

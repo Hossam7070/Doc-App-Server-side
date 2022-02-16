@@ -2,12 +2,17 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const doctorRoute = require("./Modules/Doctor/doctorRouter")
+const adminRoute = require("./Modules/Admin/adminRouter")
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 const port = 3000;
 const cors = require("cors");
 app.use(cors());
+require('dotenv').config();
+// console.log(process.env.SECRET_KEY)
+
 app.use('/doctor',doctorRoute);
+app.use('/admin',adminRoute);
 
 
 

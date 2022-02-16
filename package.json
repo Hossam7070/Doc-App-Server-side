@@ -17,8 +17,14 @@
   },
   "homepage": "https://github.com/Hossam7070/Doc-App-Server-side#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "env-cmd": "^10.1.0"
   }
 }

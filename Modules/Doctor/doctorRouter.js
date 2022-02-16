@@ -1,6 +1,7 @@
 const express = require("express");
 const Doctor = require("./doctorModel");
 const doctorRouter = express.Router();
+const authAdmin= require("../Admin/adminAuth");
 
 doctorRouter.get("/", async (req, res) => {
   const doctors = await Doctor.find({}, "doctorName speciality");
@@ -13,7 +14,7 @@ doctorRouter.get("/:id", async (req, res) => {
   res.send(doctor);
 });
 
-doctorRouter.post("/", async (req, res, next) => {
+doctorRouter.post("/",authAdmin ,async (req, res, next) => {
   const { doctorName, age, rating, speciality, city } = req.body;
   try {
     const doctor = new Doctor({ doctorName, age, rating, speciality, city });
@@ -24,7 +25,7 @@ doctorRouter.post("/", async (req, res, next) => {
     next(error);
   }
 });
-doctorRouter.patch("/:id", async (req, res, next) => {
+doctorRouter.patch("/:id",authAdmin ,async (req, res, next) => {
   const { doctorName, age, rating, speciality, city } = req.body;
   const { id } = req.params;
   try {
@@ -35,14 +36,14 @@ doctorRouter.patch("/:id", async (req, res, next) => {
       speciality,
       city,
     });
-    res.send(updated);
+    res.send("updated");
   } catch (error) {
     error.statusCode = 500;
     next(error);
   }
 });
 
-doctorRouter.delete("/:id", async (req, res, next) => {
+doctorRouter.delete("/:id",authAdmin ,async (req, res, next) => {
     const { id } = req.params;
     try {
      const deleted = await Doctor.findByIdAndDelete(id);
