@@ -5,8 +5,8 @@ const login = require("./adminController")
 
 adminRouter.post("/", async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const admin = new Admin({username, password});
+    const { username, password,email } = req.body;
+    const admin = new Admin({username, password,email});
     const newAdmin = await admin.save();
     res.send(newAdmin);
   } catch (error) {

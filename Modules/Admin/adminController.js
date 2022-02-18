@@ -6,7 +6,7 @@ const asyncValidateFn = util.promisify(jwt.sign);
 require('dotenv').config();
 
 
-const secretKey=  "ksdwkjwncnjewfjwnewrnj";
+
 const login = async (req,res,next)=>{
     const { username, password } = req.body;
     try {

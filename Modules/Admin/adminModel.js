@@ -8,7 +8,8 @@ const adminSchema = new mongoose.Schema({
     },
     password : {
         type: 'string'
-    }
+    }, 
+    email:String
 })
 adminSchema.pre('save', async function(next) {
     const saltRounds = 10;
