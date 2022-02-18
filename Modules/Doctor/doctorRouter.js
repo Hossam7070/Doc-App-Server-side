@@ -66,6 +66,6 @@ doctorRouter.delete("/:id", authAdmin, async (req, res, next) => {
     error.statusCode = 500;
     next(error);
   }
-});
+})
 
 module.exports = doctorRouter;
