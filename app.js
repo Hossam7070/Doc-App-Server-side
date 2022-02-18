@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const doctorRoute = require("./Modules/Doctor/doctorRouter")
 const adminRoute = require("./Modules/Admin/adminRouter")
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 const port = 3000;
 const cors = require("cors");
 app.use(cors());

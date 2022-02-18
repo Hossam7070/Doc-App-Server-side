@@ -4,7 +4,7 @@ const doctorRouter = express.Router();
 const authAdmin = require("../Admin/adminAuth");
 
 doctorRouter.get("/", async (req, res) => {
-  const doctors = await Doctor.find({}, "doctorName speciality");
+  const doctors = await Doctor.find({}, "doctorName speciality gender ");
   res.send(doctors);
 });
 

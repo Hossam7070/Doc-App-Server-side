@@ -14,7 +14,7 @@ adminRouter.post("/", async (req, res, next) => {
     next(error);
   }
 });
-adminRouter.get("/",login);
+adminRouter.post("/login",login)
 
 
 
